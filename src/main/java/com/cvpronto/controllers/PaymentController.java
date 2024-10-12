@@ -77,7 +77,7 @@ public class PaymentController {
         pdfGenerationStatus.put(sessionId, true);
     }
 
-    // Novo método para armazenar a foto
+    //método para armazenar a foto
     @PostMapping("/api/store-photo/{sessionId}")
     public void storePhoto(@PathVariable String sessionId, @RequestBody String photoUrl) {
         photoStorage.put(sessionId, photoUrl); // Armazena a foto associada ao sessionId
