@@ -1,5 +1,5 @@
 # Dockerfile do Back-end
-FROM eclipse-temurin:17.0.8.1-jdk-jammy AS build
+FROM eclipse-temurin:17-jdk AS build
 
 # Copie os arquivos do projeto para a imagem
 COPY . .
