@@ -18,7 +18,7 @@ public class PaymentController {
     @Value("${stripe.api.key}")
     private String stripeApiKey;
 
-    @Value("${API_URL_SUCCESS}")
+    @Value("https://cvpronto-frontend.onrender.com")
     private String apiUrlSuccess;
 
 
