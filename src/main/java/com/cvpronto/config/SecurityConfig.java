@@ -36,7 +36,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "https://cvpronto-frontend.onrender.com") // Substitua pelo seu domínio de frontend
+                        .allowedOrigins("http://localhost:3000", "https://cvpronto-frontend.onrender.com", "https://cvpronto-backend.onrender.com") // Substitua pelo seu domínio de frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
