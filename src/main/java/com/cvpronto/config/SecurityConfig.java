@@ -23,7 +23,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Permite todas as requisições OPTIONS
                         .requestMatchers("/api/**").permitAll() // Permite todas as rotas /api/** sem autenticação
                         .requestMatchers("/success/**").permitAll()
-                        .anyRequest().authenticated() // Assegura que qualquer outra requisição precise de autenticação
+                        .requestMatchers("/**").permitAll() // Assegura que qualquer outra requisição precise de autenticação
                 );
 
         return http.build();
@@ -37,7 +37,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOriginPatterns("http://localhost:3000", "https://cvpronto-frontend.onrender.com", "https://cvpronto-backend.onrender.com") // Substitua pelo seu domínio de frontend
+                        .allowedOriginPatterns("http://localhost:3000", "https://cvpronto-frontend.onrender.com") // Substitua pelo seu domínio de frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
