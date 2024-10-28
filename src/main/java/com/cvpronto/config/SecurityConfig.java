@@ -23,7 +23,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Permite todas as requisições OPTIONS
                         .requestMatchers("/api/**").permitAll() // Permite todas as rotas /api/** sem autenticação
                         .requestMatchers("/success/**").permitAll()
-                        .requestMatchers("/**").permitAll() // Assegura que qualquer outra requisição precise de autenticação
+                        .anyRequest().authenticated() // Assegura que qualquer outra requisição precise de autenticação
                 );
 
         return http.build();
