@@ -18,6 +18,10 @@ public class PaymentController {
     @Value("${stripe.api.key}")
     private String stripeApiKey;
 
+    @Value("${API_URL_SUCCESS}")
+    private String apiUrlSuccess;
+
+
     // Armazenar estado de PDF gerado em um mapa para cada sessionId
     private final Map<String, Boolean> pdfGenerationStatus = new HashMap<>();
     // Mapa para armazenar a foto por sessionId
@@ -33,8 +37,8 @@ public class PaymentController {
         SessionCreateParams params = SessionCreateParams.builder()
                 .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
                 .setMode(SessionCreateParams.Mode.PAYMENT)
-                .setSuccessUrl("http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}")
-                .setCancelUrl("http://localhost:3000/cancel")
+                .setSuccessUrl(apiUrlSuccess + "/success?session_id={CHECKOUT_SESSION_ID}")
+                .setCancelUrl(apiUrlSuccess + "/cancel")
                 .addLineItem(
                         SessionCreateParams.LineItem.builder()
                                 .setQuantity(1L)
