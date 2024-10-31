@@ -54,7 +54,7 @@ public class PaymentController {
         return responseData;
     }
 
-    @GetMapping("/api/verify-payment/{sessionId}")
+    @GetMapping("/api/checkout/verify-payment/{sessionId}")
     public Map<String, Object> verifyPayment(@PathVariable String sessionId) throws StripeException {
         Session session = Session.retrieve(sessionId);
         Map<String, Object> response = new HashMap<>();
