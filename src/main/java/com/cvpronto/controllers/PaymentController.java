@@ -68,7 +68,7 @@ public class PaymentController {
     }
 
     // Novo endpoint para verificar se o PDF já foi gerado
-    @GetMapping("/api/pdf-generated/{sessionId}")
+    @GetMapping("/api/checkout/pdf-generated/{sessionId}")
     public Map<String, Boolean> checkPdfGenerated(@PathVariable String sessionId) {
         Map<String, Boolean> response = new HashMap<>();
         response.put("pdfGenerated", pdfGenerationStatus.getOrDefault(sessionId, false));
@@ -76,13 +76,13 @@ public class PaymentController {
     }
 
     // Método para registrar que o PDF foi gerado
-    @PostMapping("/api/mark-pdf-generated/{sessionId}")
+    @PostMapping("/api/checkout/mark-pdf-generated/{sessionId}")
     public void markPdfGenerated(@PathVariable String sessionId) {
         pdfGenerationStatus.put(sessionId, true);
     }
 
     //método para armazenar a foto
-    @PostMapping("/api/store-photo/{sessionId}")
+    @PostMapping("/api/checkout/store-photo/{sessionId}")
     public void storePhoto(@PathVariable String sessionId, @RequestBody String photoUrl) {
         photoStorage.put(sessionId, photoUrl); // Armazena a foto associada ao sessionId
     }
